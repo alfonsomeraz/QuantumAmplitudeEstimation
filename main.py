@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 import time
 
-from matplotlib import pyplot as plt
+import matplotlib.pyplot as plt
 from qiskit import QuantumCircuit
 from qiskit.algorithms import IterativeAmplitudeEstimation, EstimationProblem
 from qiskit.circuit.library import LinearAmplitudeFunction
