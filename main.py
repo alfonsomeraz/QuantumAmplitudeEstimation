@@ -17,7 +17,7 @@ from qiskit_finance.circuit.library import LogNormalDistribution
 num_uncertainty_qubits = 3
 progress_text = "Operation in progress. Please wait."
 
-st.title('Option Pricing App')
+st.title('Quantum Option Pricing')
 
 
 st.write("This app uses the Quantum Amplitude Estimation (QAE) algorithm to price European options")
