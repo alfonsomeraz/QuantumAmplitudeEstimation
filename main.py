@@ -63,7 +63,7 @@ uncertainty_model = LogNormalDistribution(
     num_uncertainty_qubits, mu=mu, sigma=sigma**2, bounds=(low, high)
 )
 
-st.subheader("Uncertainty Model")
+st.subheader("1. Uncertainty Model")
 
 # plot probability distribution
 x = uncertainty_model.values
@@ -80,7 +80,7 @@ plt.title("Probability Distribution of Spot Price at Maturity", size=15)
 st.pyplot(fig)
 
 
-st.subheader("Payoff Function")
+st.subheader("2. Payoff Function")
 # set the strike price (should be within the low and the high value of the uncertainty)
 strike_price = st.number_input('Strike Price (should be within the low and the high value of the uncertainty)'
                               , min_value=low, max_value=high, value=2.0, step=0.01)
@@ -174,7 +174,7 @@ st.write("Exact expected value:\t%.4f" % exact_value)
 st.write("Exact delta value:   \t%.4f" % exact_delta)
 
 
-st.subheader("Evaluate the Expected Value of the Payoff Function")
+st.subheader("3. Evaluate the Expected Value of the Payoff Function")
 
 # set target precision and confidence level
 epsilon = st.slider('Target Precision', 0.0, 0.10, 0.01, 0.01) # min, max, default, step
@@ -221,7 +221,7 @@ elif option_type == 'Put':
 
 
 from qiskit_finance.applications.estimation import EuropeanCallDelta
-st.subheader("Evaluate the Delta of the Payoff Function")
+st.subheader("4. Evaluate the Delta of the Payoff Function")
 
 if option_type == 'Call':
   european_call_delta = EuropeanCallDelta(
@@ -280,3 +280,6 @@ elif option_type == 'Put':
   st.write("Exact delta:    \t%.4f" % exact_delta)
   st.write("Esimated value: \t%.4f" % -result_delta.estimation)
   st.write("Confidence interval: \t[%.4f, %.4f]" % tuple(conf_int))
+
+st.subheader("5. Resources")
+st.write("1. [Qiskit Finance Documentation](https://qiskit.org/documentation/finance.html)")
